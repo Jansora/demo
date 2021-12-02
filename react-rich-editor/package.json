@@ -1,0 +1,77 @@
+{
+  "name": "react-rich-editor",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@aomao/engine": "^2.6.14",
+    "@aomao/plugin-alignment": "^2.6.14",
+    "@aomao/plugin-backcolor": "^2.6.14",
+    "@aomao/plugin-bold": "^2.6.14",
+    "@aomao/plugin-code": "^2.6.14",
+    "@aomao/plugin-codeblock": "^2.6.14",
+    "@aomao/plugin-file": "^2.6.14",
+    "@aomao/plugin-fontcolor": "^2.6.14",
+    "@aomao/plugin-fontfamily": "^2.6.14",
+    "@aomao/plugin-fontsize": "^2.6.14",
+    "@aomao/plugin-heading": "^2.6.14",
+    "@aomao/plugin-hr": "^2.6.14",
+    "@aomao/plugin-image": "^2.6.14",
+    "@aomao/plugin-indent": "^2.6.14",
+    "@aomao/plugin-italic": "^2.6.14",
+    "@aomao/plugin-line-height": "^2.6.14",
+    "@aomao/plugin-link": "^2.6.14",
+    "@aomao/plugin-mark": "^2.6.14",
+    "@aomao/plugin-mark-range": "^2.6.14",
+    "@aomao/plugin-math": "^2.6.14",
+    "@aomao/plugin-mention": "^2.6.14",
+    "@aomao/plugin-orderedlist": "^2.6.14",
+    "@aomao/plugin-paintformat": "^2.6.14",
+    "@aomao/plugin-quote": "^2.6.14",
+    "@aomao/plugin-redo": "^2.6.14",
+    "@aomao/plugin-removeformat": "^2.6.14",
+    "@aomao/plugin-selectall": "^2.6.14",
+    "@aomao/plugin-status": "^2.6.14",
+    "@aomao/plugin-strikethrough": "^2.6.14",
+    "@aomao/plugin-sub": "^2.6.14",
+    "@aomao/plugin-sup": "^2.6.14",
+    "@aomao/plugin-table": "^2.6.14",
+    "@aomao/plugin-tasklist": "^2.6.14",
+    "@aomao/plugin-underline": "^2.6.14",
+    "@aomao/plugin-undo": "^2.6.14",
+    "@aomao/plugin-unorderedlist": "^2.6.14",
+    "@aomao/plugin-video": "^2.6.14",
+    "@aomao/toolbar": "^2.6.14",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "antd": "^4.17.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

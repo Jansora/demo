@@ -1,4 +1,4 @@
-package com.jansora.demo.infrastructure.function.utils;//package com.jansora.demo.infrastructure.function.utils;
+package com.jansora.demo.utils;//package com.jansora.demo.infrastructure.function.utils;
 //
 //import com.jansora.demo.infrastructure.exception.web.BadRequestException;
 //import org.jsoup.Connection;

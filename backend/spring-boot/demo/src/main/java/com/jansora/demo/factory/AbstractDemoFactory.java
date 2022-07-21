@@ -1,7 +1,7 @@
 package com.jansora.demo.factory;
 
 import com.jansora.demo.infrastructure.function.DoSomethingWithThrowable;
-import com.jansora.demo.infrastructure.function.utils.Cost;
+import com.jansora.demo.utils.Cost;
 
 /**
  * <Description> Description for AbstractDemoFactory <br>

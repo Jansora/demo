@@ -1,4 +1,4 @@
-package com.jansora.demo.infrastructure.function.utils;
+package com.jansora.demo.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

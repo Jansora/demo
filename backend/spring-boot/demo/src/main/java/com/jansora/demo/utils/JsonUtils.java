@@ -1,4 +1,4 @@
-package com.jansora.demo.infrastructure.function.utils;
+package com.jansora.demo.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;

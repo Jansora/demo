@@ -1,4 +1,4 @@
-package com.jansora.demo.infrastructure.function.utils;
+package com.jansora.demo.utils;
 
 import com.jansora.demo.infrastructure.dto.ResultDto;
 import com.jansora.demo.infrastructure.exception.system.CommandException;

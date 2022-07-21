@@ -23,3 +23,4 @@ node_modules
 yarn.*
 
 .idea
+backend/spring-boot/.DS_Store

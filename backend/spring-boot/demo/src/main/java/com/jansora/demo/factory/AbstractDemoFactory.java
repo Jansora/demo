@@ -13,10 +13,13 @@ import com.jansora.demo.infrastructure.function.utils.Cost;
  * @CreateDate 2022/7/20 AM09:38 <br>
  * @since 1.0 <br>
  */
-public class AbstractDemoFactory implements DemoFactory {
+public abstract class AbstractDemoFactory implements DemoFactory {
 
     @Override
-    public void run(DoSomethingWithThrowable doSomething) throws Throwable {
-        Cost.timeWithEx(AbstractDemoFactory.class.getSimpleName(), doSomething);
+    public final void run() throws Throwable {
+        Cost.timeWithEx(AbstractDemoFactory.class.getSimpleName(), doSomething());
     }
+
+    public abstract DoSomethingWithThrowable doSomething() throws Throwable;
+
 }

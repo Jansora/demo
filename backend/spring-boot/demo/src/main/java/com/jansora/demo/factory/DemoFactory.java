@@ -1,7 +1,5 @@
 package com.jansora.demo.factory;
 
-import com.jansora.demo.infrastructure.function.DoSomethingWithThrowable;
-
 /**
  * <Description> Description for DemoFactory <br>
  *
@@ -14,7 +12,6 @@ import com.jansora.demo.infrastructure.function.DoSomethingWithThrowable;
  */
 public interface DemoFactory {
 
-    void run(DoSomethingWithThrowable doSomething) throws Throwable;
-
+    void run() throws Throwable;
 
 }

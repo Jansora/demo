@@ -24,17 +24,22 @@ public class LambdaDemo extends AbstractDemoFactory {
     @Override
     protected DoSomethingWithThrowable doSomething(String[] args) throws Throwable {
         return () -> {
-            Cost.time("normal 1000 0000", () -> {
-                for (int i = 0; i < 1_000_000; i++) {
+            // call 10 times
+            for (int j = 0; j < 10; j++) {
 
-                }
-            });
-            Cost.time("normal 1000 0000", () -> {
-                for (int i = 0; i < 1_000_000; i++) {
-                    doSomething.doSomething();
-                    ;
-                }
-            });
+                Cost.time("normal 1000 0000", () -> {
+                    for (int i = 0; i < 1_000_000; i++) {
+
+                    }
+                });
+
+                Cost.time("normal 1000 0000", () -> {
+                    for (int i = 0; i < 1_000_000; i++) {
+                        doSomething.doSomething();
+                    }
+                });
+            }
+
         };
     }
 }

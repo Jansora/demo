@@ -1,12 +1,11 @@
 package com.jansora.demo.infrastructure.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.jansora.app.infrastructure.dto.page.PageReq;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class BaseDto extends PageReq implements Serializable {
+public class BaseDto implements Serializable {
 
     /**
      * 主键 id

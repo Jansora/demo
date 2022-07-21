@@ -1,0 +1,7 @@
+server:
+  port: 19932
+
+
+logging:
+  level:
+    com.jansora.demo: debug

@@ -12,6 +12,6 @@ package com.jansora.demo.factory;
  */
 public interface DemoFactory {
 
-    void run() throws Throwable;
+    void run(String[] args) throws Throwable;
 
 }

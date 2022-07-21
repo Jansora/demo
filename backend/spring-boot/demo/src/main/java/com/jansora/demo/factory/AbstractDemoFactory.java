@@ -15,11 +15,16 @@ import com.jansora.demo.infrastructure.function.utils.Cost;
  */
 public abstract class AbstractDemoFactory implements DemoFactory {
 
+
     @Override
-    public final void run() throws Throwable {
-        Cost.timeWithEx(AbstractDemoFactory.class.getSimpleName(), doSomething());
+    public final void run(String[] args) throws Throwable {
+        Cost.timeWithEx(getModuleName(), doSomething(args));
     }
 
-    public abstract DoSomethingWithThrowable doSomething() throws Throwable;
+    protected String getModuleName() {
+        return this.getClass().getSimpleName();
+    }
+
+    protected abstract DoSomethingWithThrowable doSomething(String[] args) throws Throwable;
 
 }

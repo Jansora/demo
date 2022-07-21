@@ -19,7 +19,7 @@ import org.springframework.util.StringUtils;
 public final class Cost {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Cost.class);
-    private static final String CEE_COST_PREFIX = "[ --- CEE-COST --- ] ";
+    private static final String COST_PREFIX = "[ --- COST --- ] ";
 
     private Cost() {
 
@@ -31,11 +31,11 @@ public final class Cost {
     public static void timeWithEx(String moduleName, DoSomethingWithThrowable doSomething) throws Throwable {
         if (LOGGER.isDebugEnabled()) {
             String name = StringUtils.hasLength(moduleName) ? moduleName : "default-" + DateUtils.formatNow();
-            LOGGER.debug(CEE_COST_PREFIX + moduleName + " cost start ");
+            LOGGER.debug(COST_PREFIX + moduleName + " cost start ");
             long start = System.nanoTime();
             doSomething.doSomething();
             float cost = (float) (System.nanoTime() - start) / 1000_000;
-            LOGGER.debug(CEE_COST_PREFIX + name + " cost end. " + "[ cost: " + cost + " ms. ] ");
+            LOGGER.debug(COST_PREFIX + name + " cost end. " + "[ cost: " + cost + " ms. ] ");
             return;
         }
 
@@ -62,11 +62,11 @@ public final class Cost {
     public static void time(String moduleName, DoSomething doSomething) {
         if (LOGGER.isDebugEnabled()) {
             String name = StringUtils.hasLength(moduleName) ? moduleName : "default-" + DateUtils.formatNow();
-            LOGGER.debug(CEE_COST_PREFIX + moduleName + " cost start ");
+            LOGGER.debug(COST_PREFIX + moduleName + " cost start ");
             long start = System.nanoTime();
             doSomething.doSomething();
             float cost = (float) (System.nanoTime() - start) / 1000_000;
-            LOGGER.debug(CEE_COST_PREFIX + name + " cost end. " + "[ cost: " + cost + " ms. ] ");
+            LOGGER.debug(COST_PREFIX + name + " cost end. " + "[ cost: " + cost + " ms. ] ");
             return;
         }
 

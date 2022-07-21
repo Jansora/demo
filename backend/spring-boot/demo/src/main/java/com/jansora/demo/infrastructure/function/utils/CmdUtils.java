@@ -1,6 +1,6 @@
 package com.jansora.demo.infrastructure.function.utils;
 
-import com.jansora.app.infrastructure.dto.ResultDto;
+import com.jansora.demo.infrastructure.dto.ResultDto;
 import com.jansora.demo.infrastructure.exception.system.CommandException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

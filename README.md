@@ -1,2 +1,2 @@
-# mirrors
-the source code of packages build in https://packages.aliyun.com/
+# Demo 验证 code
+

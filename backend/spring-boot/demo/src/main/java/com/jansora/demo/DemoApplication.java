@@ -1,6 +1,5 @@
 package com.jansora.demo;
 
-import com.jansora.demo.lambda.LambdaDemo;
 import com.jansora.infrastructure.factory.AbstractDemoFactory;
 import com.jansora.utils.Cost;
 import org.springframework.boot.SpringApplication;
@@ -13,7 +12,9 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
 
 //        run(args, OverBeanDemo.class);
-        run(args, LambdaDemo.class);
+//        run(args, LambdaDemo.class);
+
+
     }
 
     @SafeVarargs

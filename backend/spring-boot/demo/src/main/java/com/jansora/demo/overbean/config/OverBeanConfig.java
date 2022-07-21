@@ -3,6 +3,8 @@ package com.jansora.demo.overbean.config;
 import com.jansora.demo.overbean.service.impl.custom.Korean;
 import com.jansora.demo.overbean.service.impl.product.Asian;
 import com.jansora.demo.overbean.service.impl.product.European;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
@@ -20,6 +22,9 @@ import java.util.List;
 @Configuration
 @Order(value = Ordered.HIGHEST_PRECEDENCE)
 public class OverBeanConfig implements BeanFactoryPostProcessor {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OverBeanConfig.class);
+
 
 //    @Autowired
 //    AppProperties appProperties;
@@ -46,7 +51,7 @@ public class OverBeanConfig implements BeanFactoryPostProcessor {
                 String[] beanNamesForClazz = factory.getBeanNamesForType(clazz);
 
                 for (String beanName : beanNamesForClazz) {
-                    System.out.println("remove bean from springContext. beanName: " + beanName);
+                    LOGGER.debug("remove bean from springContext. beanName: {}, class: {}", beanName, clazz);
                     factory.removeBeanDefinition(beanName);
                 }
             } catch (ClassNotFoundException e) {

@@ -23,8 +23,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class OverBeanDemo extends AbstractDemoFactory implements ApplicationContextAware {
 
-
     private static ApplicationContext context;
+
     @Autowired
     AsianService asianService;
     @Autowired

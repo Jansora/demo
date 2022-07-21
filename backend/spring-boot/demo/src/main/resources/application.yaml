@@ -4,4 +4,4 @@ server:
 
 logging:
   level:
-    com.jansora.demo: debug
+    com.jansora: debug

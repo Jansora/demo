@@ -1,8 +1,8 @@
-package com.jansora.demo.overbean;
+package com.jansora.demo.overbean.lib;
 
 import com.jansora.app.repo.core.function.DoSomethingWithThrowable;
-import com.jansora.demo.overbean.service.AsianService;
-import com.jansora.demo.overbean.service.EuropeanService;
+import com.jansora.demo.overbean.lib.service.AsianService;
+import com.jansora.demo.overbean.lib.service.EuropeanService;
 import com.jansora.repo.demo.AbstractDemoFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;

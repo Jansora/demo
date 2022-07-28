@@ -1,8 +1,8 @@
-package com.jansora.demo.overbean.config;
+package com.jansora.demo.overbean.lib.config;
 
-import com.jansora.demo.overbean.service.impl.custom.Korean;
-import com.jansora.demo.overbean.service.impl.product.Asian;
-import com.jansora.demo.overbean.service.impl.product.European;
+import com.jansora.demo.overbean.lib.service.impl.custom.Korean;
+import com.jansora.demo.overbean.lib.service.impl.product.Asian;
+import com.jansora.demo.overbean.lib.service.impl.product.European;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;

@@ -1,4 +1,4 @@
-package com.jansora.demo.lambda;
+package com.jansora.demo.lambda.lib;
 
 import com.jansora.app.repo.core.function.DoSomething;
 import com.jansora.app.repo.core.function.DoSomethingWithThrowable;

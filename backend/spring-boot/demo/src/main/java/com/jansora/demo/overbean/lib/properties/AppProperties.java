@@ -1,4 +1,4 @@
-package com.jansora.demo.overbean.properties;//package com.jansora.overbean.properties;
+package com.jansora.demo.overbean.lib.properties;//package com.jansora.overbean.properties;
 //
 //import org.springframework.boot.context.properties.ConfigurationProperties;
 //import org.springframework.context.annotation.Configuration;

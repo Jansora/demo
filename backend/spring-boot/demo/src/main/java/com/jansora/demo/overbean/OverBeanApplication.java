@@ -2,6 +2,7 @@ package com.jansora.demo.overbean;
 
 
 import com.jansora.app.repo.core.utils.CostUtils;
+import com.jansora.demo.overbean.lib.OverBeanDemo;
 import com.jansora.repo.demo.AbstractDemoFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.jansora.demo.overbean.service;
+package com.jansora.demo.overbean.lib.service;
 
 public interface AsianService {
     default void sayHello() {

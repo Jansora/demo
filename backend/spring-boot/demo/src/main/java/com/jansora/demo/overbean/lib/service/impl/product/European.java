@@ -1,6 +1,6 @@
-package com.jansora.demo.overbean.service.impl.product;
+package com.jansora.demo.overbean.lib.service.impl.product;
 
-import com.jansora.demo.overbean.service.EuropeanService;
+import com.jansora.demo.overbean.lib.service.EuropeanService;
 import org.springframework.stereotype.Service;
 
 /**

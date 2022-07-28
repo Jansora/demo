@@ -1,9 +1,9 @@
 package com.jansora.demo.overbean;
 
+import com.jansora.app.repo.core.function.DoSomethingWithThrowable;
 import com.jansora.demo.overbean.service.AsianService;
 import com.jansora.demo.overbean.service.EuropeanService;
-import com.jansora.infrastructure.factory.AbstractDemoFactory;
-import com.jansora.infrastructure.function.DoSomethingWithThrowable;
+import com.jansora.repo.demo.AbstractDemoFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

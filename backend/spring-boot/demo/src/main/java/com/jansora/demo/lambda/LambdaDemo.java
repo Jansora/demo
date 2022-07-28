@@ -1,10 +1,9 @@
 package com.jansora.demo.lambda;
 
-import com.jansora.infrastructure.factory.AbstractDemoFactory;
-import com.jansora.infrastructure.function.DoSomething;
-import com.jansora.infrastructure.function.DoSomethingWithThrowable;
-import com.jansora.utils.Cost;
-
+import com.jansora.app.repo.core.function.DoSomething;
+import com.jansora.app.repo.core.function.DoSomethingWithThrowable;
+import com.jansora.app.repo.core.utils.CostUtils;
+import com.jansora.repo.demo.AbstractDemoFactory;
 /**
  * <Description> Description for LambdaDemo <br>
  *
@@ -27,13 +26,13 @@ public class LambdaDemo extends AbstractDemoFactory {
             // call 10 times
             for (int j = 0; j < 10; j++) {
 
-                Cost.time("normal 1000 0000", () -> {
+                CostUtils.time("normal 1000 0000", () -> {
                     for (int i = 0; i < 1_000_000; i++) {
 
                     }
                 });
 
-                Cost.time("normal 1000 0000", () -> {
+                CostUtils.time("normal 1000 0000", () -> {
                     for (int i = 0; i < 1_000_000; i++) {
                         doSomething.doSomething();
                     }

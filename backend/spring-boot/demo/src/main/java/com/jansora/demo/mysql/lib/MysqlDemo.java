@@ -2,11 +2,14 @@ package com.jansora.demo.mysql.lib;
 
 import com.jansora.app.repo.core.function.DoSomethingWithThrowable;
 import com.jansora.demo.mysql.lib.mapper.AccountMapper;
+import com.jansora.demo.mysql.lib.model.AccountDo;
 import com.jansora.repo.demo.AbstractDemoFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 /**
  * <Description> Description for OverBeanDemo <br>
@@ -35,6 +38,13 @@ public class MysqlDemo extends AbstractDemoFactory implements ApplicationContext
     public DoSomethingWithThrowable doSomething(String[] args) throws Throwable {
         return () -> {
             System.out.println(accountMapper.count());
+            System.out.println(accountMapper.selectByPrimaryKey(1L));
+            AccountDo accountDo = new AccountDo();
+            accountDo.setCreatedAt(new Date());
+//            accountMapper.m
+
+            accountMapper.insert(accountDo);
+            System.out.println(accountDo);
         };
     }
 }

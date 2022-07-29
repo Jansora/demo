@@ -5,6 +5,8 @@
 <mapper namespace="com.jansora.demo.mysql.lib.mapper.AccountMapper">
 
     <select id="count" resultType="com.jansora.app.repo.core.carrier.dto.KVDto">
-        SELECT username AS NAME, username AS VALUE from account group by username;
+        SELECT avatar AS NAME, avatar AS VALUE
+        from account
+        group by avatar;
     </select>
 </mapper>

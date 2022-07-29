@@ -12,7 +12,7 @@ spring:
   datasource:
     username: root
     password:
-    url: jdbc:mysql://sh-cdb-8689o9s6.sql.tencentcdb.com:59282/app-dev?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://mysql.jansora.app:3306/dev?useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 20

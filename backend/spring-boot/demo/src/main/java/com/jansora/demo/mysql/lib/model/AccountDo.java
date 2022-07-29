@@ -1,8 +1,7 @@
 package com.jansora.demo.mysql.lib.model;
 
 import com.jansora.repo.mysql.model.BaseDo;
-
-import javax.persistence.Table;
+import io.mybatis.provider.Entity;
 
 /**
  * <Description> Description for AccountDo <br>
@@ -14,7 +13,8 @@ import javax.persistence.Table;
  * @CreateDate 2022/7/29 PM02:02 <br>
  * @since 1.0 <br>
  */
-@Table(name = "account")
+@Entity.Table(value = "account", remark = "系统用户", autoResultMap = true)
 public class AccountDo extends BaseDo {
+
 
 }

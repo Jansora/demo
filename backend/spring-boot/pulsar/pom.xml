@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.jansora.repo</groupId>
+        <artifactId>repo-parent</artifactId>
+        <version>0.1.57</version>
+    </parent>
+    <groupId>com.jansora</groupId>
+    <artifactId>pulsar</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>pulsar</name>
+    <description>pulsar</description>
+    <properties>
+        <java.version>17</java.version>
+        <javac.src.version>17</javac.src.version>
+        <javac.target.version>17</javac.target.version>
+        <spring.boot.version>2.7.2</spring.boot.version>
+    </properties>
+
+
+    <!--    <distributionManagement>-->
+    <!--        <repository>-->
+    <!--            <id>rdc-releases</id>-->
+    <!--            <name>rdc-releases</name>-->
+    <!--            <url>https://packages.aliyun.com/maven/repository/2054722-release-rg7DwN</url>-->
+    <!--            <uniqueVersion>true</uniqueVersion>-->
+    <!--        </repository>-->
+    <!--        <snapshotRepository>-->
+    <!--            <id>rds-snapshots</id>-->
+    <!--            <name>rdc-snapshots</name>-->
+    <!--            <url>https://packages.aliyun.com/maven/repository/2054722-snapshot-GDKyLs/</url>-->
+    <!--            <uniqueVersion>false</uniqueVersion>-->
+    <!--        </snapshotRepository>-->
+    <!--    </distributionManagement>-->
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jansora.repo</groupId>
+            <artifactId>demo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jansora.repo</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jansora.repo</groupId>
+            <artifactId>pulsar</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

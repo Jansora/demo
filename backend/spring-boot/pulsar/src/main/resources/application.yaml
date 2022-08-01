@@ -1,0 +1,25 @@
+server:
+  port: 19933
+
+
+logging:
+  level:
+    com.jansora: debug
+
+#PulsarClient
+pulsar:
+  service-url: http://xxx.public.tencenttdmq.com:8080
+#  io-threads: 10
+#  listener-threads: 10
+#  enable-tcp-no-delay: false
+#  keep-alive-interval-sec: 20
+#  connection-timeout-sec: 10
+#  operation-timeout-sec: 15
+#  starting-backoff-interval-ms: 100
+#  max-backoff-interval-sec: 10
+#  consumer-name-delimiter:
+  namespace: xxx
+  tenant: pulsar-xxx
+#  auto-start: true
+#  allow-interceptor: false
+  token-auth-value: eyJr...Z

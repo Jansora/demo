@@ -2,7 +2,7 @@ package com.jansora.demo.mysql.lib.mapper;
 
 import com.jansora.app.repo.core.carrier.dto.KVDto;
 import com.jansora.demo.mysql.lib.model.AccountDo;
-import io.mybatis.mapper.base.EntityMapper;
+import io.mybatis.mapper.Mapper;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
  * @CreateDate 2022/7/29 PM02:05 <br>
  * @since 1.0 <br>
  */
-public interface AccountMapper extends EntityMapper<AccountDo, Long> {
+public interface AccountMapper extends Mapper<AccountDo, Long> {
 
     List<KVDto<String>> count();
 

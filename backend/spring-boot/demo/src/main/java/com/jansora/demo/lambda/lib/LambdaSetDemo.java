@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
  * @since 1.0 <br>
  */
 public class LambdaSetDemo extends AbstractDemoFactory {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(OverBeanConfig.class);
 
     private static final DoSomething doSomething = () -> {
@@ -28,6 +29,7 @@ public class LambdaSetDemo extends AbstractDemoFactory {
     @Override
     protected DoSomethingWithThrowable doSomething(String[] args) throws Throwable {
         return () -> {
+
             // call 10 times
             for (int j = 0; j < 10; j++) {
 

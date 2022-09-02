@@ -1,11 +1,10 @@
-package com.jansora.demo.spring;
+package com.jansora.demo.spring.circular;
 
 
 import com.jansora.app.repo.core.generator.CustomBeanNameGenerator;
 import com.jansora.app.repo.core.utils.CostUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication(nameGenerator = CustomBeanNameGenerator.class)
 public class CircularDependenceApplication {
@@ -14,8 +13,6 @@ public class CircularDependenceApplication {
     static int col = 512;
     static int[][] matrix = new int[row][col];
 
-
-    @Bean
     public static void main(String[] args) throws Throwable {
 
         //逐行遍历

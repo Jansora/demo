@@ -1,4 +1,4 @@
-package com.jansora.demo.spring.lib;
+package com.jansora.demo.spring.circular.lib;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

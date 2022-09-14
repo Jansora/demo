@@ -1,6 +1,5 @@
 package com.jansora.demo.spring.aop.lib;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class BeanB {
 
-    @Autowired
-    BeanA beanA;
+
 
 }

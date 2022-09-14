@@ -1,5 +1,6 @@
 package com.jansora.demo.spring.aop.lib;
 
+import com.jansora.app.repo.core.logging.annotation.Logging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,4 +18,14 @@ public class BeanA {
     @Autowired
     BeanB beanB;
 
+
+    @Logging
+    public void a(){
+        b();
+    }
+
+    @Logging
+    public void b(){
+//        a();
+    }
 }

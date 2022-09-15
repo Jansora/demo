@@ -3,7 +3,7 @@ package com.jansora.demo.spring;
 /**
  * 给你一幅由 a × a 矩阵表示的图像，。请你设计一种算法，将图像旋转 90 度。
  */
-public class Solu {
+public class ImageRotate {
 
 
     public static int[][] rotate(int[][] image) {

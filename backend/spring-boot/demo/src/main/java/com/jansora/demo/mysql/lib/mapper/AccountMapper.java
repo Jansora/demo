@@ -1,6 +1,6 @@
 package com.jansora.demo.mysql.lib.mapper;
 
-import com.jansora.app.repo.core.carrier.dto.KVDto;
+import com.jansora.app.repo.core.payload.dto.KVDto;
 import com.jansora.demo.mysql.lib.model.AccountDo;
 import io.mybatis.mapper.Mapper;
 

@@ -20,7 +20,7 @@ public class OverBeanApplication {
     @SafeVarargs
     private static <T extends AbstractDemoFactory> void run(String[] args, Class<T>... demos) throws Throwable {
         for (Class<T> demo : demos) {
-            CostUtils.timeWithEx(demo.getName(), () -> demo.newInstance().run(args));
+            CostUtils.timeWithEx(demo.getName(), () -> demo.getDeclaredConstructor().newInstance().run(args));
         }
     }
 

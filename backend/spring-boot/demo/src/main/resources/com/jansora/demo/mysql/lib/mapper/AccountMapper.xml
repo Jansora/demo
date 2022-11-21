@@ -4,7 +4,7 @@
 
 <mapper namespace="com.jansora.demo.mysql.lib.mapper.AccountMapper">
 
-    <select id="count" resultType="com.jansora.app.repo.core.carrier.dto.KVDto">
+    <select id="count" resultType="com.jansora.app.repo.core.payload.dto.KVDto">
         SELECT avatar AS NAME, avatar AS VALUE
         from account
         group by avatar;

@@ -1,6 +1,6 @@
 package com.jansora.demo.mysql.lib.model;
 
-import com.jansora.repo.mysql.model.BaseDo;
+import com.jansora.app.repo.core.payload.model.BaseDo;
 import io.mybatis.provider.Entity;
 
 /**

@@ -15,7 +15,7 @@ public class ReorderExample {
     boolean flag = false;
 
     public void writer() {
-        a = 1; //1
+        a = 1; //1 OBJE
         flag = true; //2
     }
 

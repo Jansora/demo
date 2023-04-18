@@ -27,6 +27,7 @@ public class OverBeanDemo extends AbstractDemoFactory implements ApplicationCont
 
     @Autowired
     AsianService asianService;
+
     @Autowired
     EuropeanService europeanService;
 

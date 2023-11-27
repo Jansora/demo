@@ -1,5 +1,7 @@
 package com.jansora.demo.other;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -12,38 +14,18 @@ public class Solu2 {
 
     public static void main(String[] args) throws Throwable {
 
+        List<String> myList = new ArrayList<>();
+        // Add elements to myList
+        myList.add("a");
+        myList.add("b");
+        myList.add("test");
+        myList.add("x");
+        myList.add("y");
+        myList.add("z");
+
+        System.out.println(myList.subList(myList.indexOf("text"), myList.size() -1));
 
 
-        Thread a = new Thread(() -> System.out.println("a"));
-
-        Thread b = new Thread(() -> {
-            try {
-                a.join();
-                System.out.println("b");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-
-        Thread c = new Thread(() -> {
-            try {
-                b.join();
-                System.out.println("c");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-
-
-
-        for (int i = 0;  i< 10; i++ ) {
-            a.start();
-            b.start();
-            c.start();
-        }
-
-        ReentrantLock lock = new ReentrantLock();
-        lock.newCondition();
     }
 
 

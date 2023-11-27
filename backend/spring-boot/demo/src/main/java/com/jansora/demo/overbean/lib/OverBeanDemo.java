@@ -1,6 +1,6 @@
 package com.jansora.demo.overbean.lib;
 
-import com.jansora.app.repo.core.function.DoSomethingWithThrowable;
+
 import com.jansora.demo.overbean.lib.service.AsianService;
 import com.jansora.demo.overbean.lib.service.EuropeanService;
 import com.jansora.repo.demo.AbstractDemoFactory;

@@ -1,0 +1,16 @@
+package com.jansora.demo.rule.drools.rules;
+
+//import com.jansora.demo.rule.drools.pom.delay.DelayProject;
+//import java.time.LocalDateTime;
+
+
+//规则rule1的注释，这是一个单行注释
+rule "green"
+    no-loop true
+    lock-on-active true //锁住规则，防止重复触发
+    when
+//        $project: DelayProject(delayDays < 0)
+    then
+//        $project.setColor("green");
+        System.out.println("rule1触发");
+end

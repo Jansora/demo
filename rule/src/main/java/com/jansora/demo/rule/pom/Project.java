@@ -34,7 +34,7 @@ public class Project {
     /**
      * 项目完成时间
      */
-    Color color;
+    String color;
 
     public enum Color {
         GREEN, BLUE, YELLOW, BLACK, RED,

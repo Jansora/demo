@@ -15,7 +15,7 @@ public class MarkBlackComponent extends NodeComponent {
     @Override
     public void process() throws Exception {
         DelayProjectContext context = this.getContextBean(DelayProjectContext.class);
-        context.setColor(Project.Color.BLACK);
+        context.setColor(Project.Color.BLACK.name());
         System.out.println("将项目 [ " + context.getProjectName() + " ] 标记为: " + context.getColor());
     }
 }

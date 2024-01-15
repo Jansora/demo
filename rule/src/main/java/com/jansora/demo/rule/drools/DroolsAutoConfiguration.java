@@ -16,12 +16,14 @@ import org.kie.internal.io.ResourceFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 /**
@@ -42,35 +44,37 @@ public class DroolsAutoConfiguration {
     @ConditionalOnMissingBean(KieFileSystem.class)
     public KieFileSystem kieFileSystem() throws IOException {
         KieFileSystem kieFileSystem = getKieServices().newKieFileSystem();
-        for (Resource file : getRuleFiles()) {
-            kieFileSystem.write(ResourceFactory.newByteArrayResource(Files.readAllBytes(path)));
-            kieFileSystem.write(ResourceFactory.newClassPathResource(RULES_PATH + file.getFilename(), "UTF-8"));
+        for (String filePath : getRuleFiles()) {
+//            String virvalPath = System.getProperty("java.io.tmpdir") + filePath;
+//            writeBytesToFile(Files.readAllBytes(Paths.get(filePath)), virvalPath);
+            kieFileSystem.write(ResourceFactory.newFileResource(filePath));
+//            kieFileSystem.write(filePath, Files.readAllBytes(Paths.get(filePath)));
         }
-
-
+//        for (Resource file : getResourcesRuleFiles()) {
+//            kieFileSystem.write(ResourceFactory.newClassPathResource(RULES_PATH + file.getFilename(), "UTF-8"));
+//        }
         return kieFileSystem;
     }
+    private Resource[] getResourcesRuleFiles() throws IOException {
+        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
+        return resourcePatternResolver.getResources("classpath*:" + RULES_PATH + "**/*.*");
 
-    private byte[][] getRuleFiles() throws IOException {
+//        String filePath = "/Users/jansora/Documents/Github/demo/rule/src/main/resources/rules/test.drl";
+//        return new String[] {filePath};
+    }
+
+    private String[] getRuleFiles() throws IOException {
 //        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
 //        return resourcePatternResolver.getResources("classpath*:" + RULES_PATH + "**/*.*");
 
-        String filePath = "/Users/jansora/Documents/Github/demo/rule/src/main/resources/static/test.drl";
-        // 将文件路径转化为File对象
-        File file = new File(filePath);
+        String filePath = "/Users/jansora/Documents/Github/demo/rule/src/main/resources/rules/test.drl";
+        return new String[] {filePath};
+    }
 
-        // 将File对象转化为Resource对象
-        Resource resource = new ClassPathResource(file.getPath());
-        // 检查资源是否存在
-        if (resource.exists()) {
-            // 执行您的操作，比如读取文件内容
-            // ...
-
-            System.out.println("Resource obtained successfully.");
-        } else {
-            System.out.println("Resource does not exist.");
-        }
-        return new Resource[] {resource};
+    // 将字节数组写入虚拟文件
+    private static void writeBytesToFile(byte[] bytes, String filePath) throws IOException {
+        Path path = Paths.get(filePath);
+        Files.write(path, bytes);
     }
 
     @Bean

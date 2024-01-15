@@ -9,16 +9,16 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jansora.demo</groupId>
-	<artifactId>liteflow</artifactId>
+	<artifactId>rule</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>liteflow</name>
-	<description>liteflow</description>
+	<name>rule</name>
+	<description>rule</description>
 	<properties>
 		<java.version>17</java.version>
 		<liteflow.version>2.11.3</liteflow.version>
-
 	</properties>
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

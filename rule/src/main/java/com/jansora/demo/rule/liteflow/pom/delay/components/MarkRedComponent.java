@@ -10,12 +10,12 @@ import com.yomahub.liteflow.core.NodeComponent;
  * @author: jansora (zhang.yangyuan)
  * @date: 2024-01-15 11:32:45
  */
-@LiteflowComponent("markColor")
-public class MarkGreenComponent extends NodeComponent {
+@LiteflowComponent("red")
+public class MarkRedComponent extends NodeComponent {
     @Override
     public void process() throws Exception {
         DelayProjectContext context = this.getContextBean(DelayProjectContext.class);
-        context.setColor(Project.Color.GREEN);
+        context.setColor(Project.Color.RED);
         System.out.println("将项目 [ " + context.getProjectName() + " ] 标记为: " + context.getColor());
     }
 }

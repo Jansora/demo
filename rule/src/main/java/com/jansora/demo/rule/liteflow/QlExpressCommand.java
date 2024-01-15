@@ -1,4 +1,4 @@
-package com.jansora.demo.liteflow;
+package com.jansora.demo.rule.liteflow;
 
 import com.yomahub.liteflow.core.FlowExecutor;
 import jakarta.annotation.Resource;

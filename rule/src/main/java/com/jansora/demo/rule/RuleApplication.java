@@ -1,13 +1,13 @@
-package com.jansora.demo.liteflow;
+package com.jansora.demo.rule;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LiteflowApplication {
+public class RuleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LiteflowApplication.class, args);
+		SpringApplication.run(RuleApplication.class, args);
 	}
 
 }

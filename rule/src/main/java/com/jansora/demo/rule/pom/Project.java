@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * @description:
@@ -22,9 +22,14 @@ public class Project {
     String projectName;
 
     /**
+     * 项目预期时间
+     */
+    LocalDateTime expectedDate;
+
+    /**
      * 项目完成时间
      */
-    Date completedDate;
+    LocalDateTime completedDate;
 
     /**
      * 项目完成时间

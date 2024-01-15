@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<liteflow.version>2.11.3</liteflow.version>
+		<drools.version>7.74.1.Final</drools.version>
 	</properties>
 	<dependencies>
 
@@ -64,6 +65,29 @@
 			<groupId>org.drools</groupId>
 			<artifactId>drools-ruleunits-engine</artifactId>
 			<version>8.41.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-spring</artifactId>
+			<version>${drools.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-tx</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>

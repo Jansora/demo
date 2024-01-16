@@ -4,6 +4,7 @@ import com.jansora.demo.rule.liteflow.pom.delay.DelayProjectContext;
 import com.yomahub.liteflow.annotation.LiteflowComponent;
 import com.yomahub.liteflow.core.NodeSwitchComponent;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
@@ -21,21 +22,25 @@ public class DelayRuleComponent extends NodeSwitchComponent {
         LocalDateTime expected = context.getExpectedDate();
         LocalDateTime completed = context.getCompletedDate();
 
+        // delayDays = completed - expected
+        long delayDays = Duration.between(completed, expected).toDays();
+
+
         // 0 - 30 days
-        if (completed.isAfter(expected) && completed.minusDays(30L).isBefore(expected)) {
+        if (delayDays > 0 && delayDays <= 30) {
             return "blue";
         }
 
         // 30 - 60 days
-        if (completed.minusDays(30L).isAfter(expected) && completed.minusDays(60L).isBefore(expected)) {
+        if (delayDays > 30 && delayDays <= 60) {
             return "yellow";
         }
         // 60 - 90 days
-        if (completed.minusDays(60L).isAfter(expected) && completed.minusDays(90L).isBefore(expected)) {
+        if (delayDays > 60 && delayDays <= 90) {
             return "red";
         }
         // > 90 days
-        if (completed.minusDays(90L).isAfter(expected)) {
+        if (delayDays > 90) {
             return "black";
         }
 

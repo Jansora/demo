@@ -58,16 +58,13 @@ public class DroolsAutoConfiguration {
     private Resource[] getResourcesRuleFiles() throws IOException {
         ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
         return resourcePatternResolver.getResources("classpath*:" + RULES_PATH + "**/*.*");
-
-//        String filePath = "/Users/jansora/Documents/Github/demo/rule/src/main/resources/rules/test.drl";
-//        return new String[] {filePath};
     }
 
     private String[] getRuleFiles() throws IOException {
 //        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
 //        return resourcePatternResolver.getResources("classpath*:" + RULES_PATH + "**/*.*");
 
-        String filePath = "/Users/jansora/Documents/Github/demo/rule/src/main/resources/rules/test.drl";
+        String filePath = "/Users/jansora/Documents/Github/demo/rule/src/main/resources/rules/pom.drl";
         return new String[] {filePath};
     }
 

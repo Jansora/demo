@@ -2,9 +2,8 @@ package com.jansora.demo.rule.drools.pom.delay;
 
 import com.jansora.demo.rule.pom.Project;
 import lombok.Data;
-import lombok.experimental.Accessors;
+import lombok.EqualsAndHashCode;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
@@ -12,16 +11,22 @@ import java.time.LocalDateTime;
  * @author: jansora (zhang.yangyuan)
  * @date: 2024-01-15 13:56:13
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-@Accessors(chain = true)
 public class DelayProject extends Project {
 
     long delayDays;
 
+    /**
+     * 处理状态
+     */
+    boolean status;
+
     public DelayProject(String projectName, LocalDateTime expectedDate, LocalDateTime completedDate, Color color) {
 
         super(projectName, expectedDate, completedDate, color.name());
-        this.delayDays = Duration.between(completedDate, expectedDate).toDays();
-        System.out.println("DelayProject: " + projectName + " delayDays: " + delayDays);
+
+        this.status = false;
+
     }
 }

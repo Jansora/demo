@@ -22,19 +22,35 @@ public class DroolsTest implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        while(true){
+//        while(true){
             KieSession kieSession = kieBase.newKieSession();
 
-            DelayProject project = new DelayProject(
-                    "drools 流程引擎测试", LocalDateTime.now().minusDays(15L),LocalDateTime.now(), Project.Color.GREEN);
-//            project.setProjectName("流程引擎测试");
-//            project.setCompletedDate(LocalDateTime.now());
-//            project.setExpectedDate(LocalDateTime.now().minusDays(15L));
-            kieSession.insert(project);
-
+            System.out.println("-----------------------------start:" +  LocalDateTime.now() + "-----------------------------");
+            DelayProject project_15 = new DelayProject( "drools 流程引擎测试 -15 day",
+                    LocalDateTime.now().minusDays(15L),LocalDateTime.now(),
+                    Project.Color.DEFAULT);
+            kieSession.insert(project_15);
+            DelayProject project15 = new DelayProject( "drools 流程引擎测试 15 day",
+                    LocalDateTime.now().plusDays(15L),LocalDateTime.now(),
+                    Project.Color.DEFAULT);
+            kieSession.insert(project15);
+            DelayProject project35 = new DelayProject( "drools 流程引擎测试 35 day",
+                    LocalDateTime.now().plusDays(35L),LocalDateTime.now(),
+                    Project.Color.DEFAULT);
+            kieSession.insert(project35);
+            DelayProject project65 = new DelayProject( "drools 流程引擎测试 65 day",
+                    LocalDateTime.now().plusDays(65L),LocalDateTime.now(),
+                    Project.Color.DEFAULT);
+            kieSession.insert(project65);
+            DelayProject project95 = new DelayProject( "drools 流程引擎测试 95 day",
+                    LocalDateTime.now().plusDays(95L),LocalDateTime.now(),
+                    Project.Color.DEFAULT);
+            kieSession.insert(project95);
+            
             kieSession.fireAllRules();
             kieSession.dispose();
-            Thread.sleep(1000);
-        }
+            System.out.println("-----------------------------end:" +  LocalDateTime.now() + "-----------------------------");
+//            Thread.sleep(100000);
+//        }
     }
 }

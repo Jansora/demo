@@ -1,0 +1,39 @@
+package rules;
+
+import com.jansora.demo.rule.drools.pom.delay.DelayProject
+import java.time.Duration
+import java.time.LocalDateTime
+
+query delayDays(DelayProject delayProject)
+     Duration.between(delayProject.getCompletedDate(), delayProject.getExpectedDate()).toDays()
+end
+
+rule "green"
+//    no-loop true
+    lock-on-active true //锁住规则，防止重复触发
+    when
+        $project: DelayProject() // 取出默认的项目
+
+
+        delayDays($project) > 0
+        $delay > 0 and $delay < 0
+//        $delayProject: DelayProject() from $project(delayDays($project) < 0)
+        // $delayProject: $delay > 0
+//        $delayProject: DelayProject(Duration.between(completedDate, expectedDate).toDays() < 0)
+    then
+//         drools.halt(); // 流程终止, 不在重复触发
+        $delay.setColor("green");
+        $delay.setStatus(true);
+        System.out.println("green" + $delay + $delayProject.getProjectName() + $delayProject.isStatus() + $delayProject.getColor());
+end
+//
+//
+//rule "blue"
+//    no-loop true
+//    lock-on-active true //锁住规则，防止重复触发
+//    when
+//        $project: DelayProject(Duration.between(completedDate, expectedDate).toDays() > 0)
+//    then
+//        $project.setColor("blue");
+//        System.out.println("blue");
+//end

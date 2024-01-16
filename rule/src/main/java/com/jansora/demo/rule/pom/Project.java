@@ -37,6 +37,6 @@ public class Project {
     String color;
 
     public enum Color {
-        GREEN, BLUE, YELLOW, BLACK, RED,
+        GREEN, BLUE, YELLOW, BLACK, RED, DEFAULT
     }
 }

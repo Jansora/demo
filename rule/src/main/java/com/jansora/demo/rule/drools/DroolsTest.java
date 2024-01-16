@@ -3,14 +3,24 @@ package com.jansora.demo.rule.drools;
 import com.jansora.demo.rule.drools.pom.delay.DelayProject;
 import com.jansora.demo.rule.pom.Project;
 import jakarta.annotation.Resource;
+import org.drools.core.impl.InternalKnowledgeBase;
 import org.kie.api.KieBase;
+import org.kie.api.builder.KieFileSystem;
+import org.kie.api.io.ResourceType;
+import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+import org.kie.internal.builder.KnowledgeBuilder;
+import org.kie.internal.builder.KnowledgeBuilderErrors;
+import org.kie.internal.builder.KnowledgeBuilderFactory;
+import org.kie.internal.io.ResourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+
+import static com.jansora.demo.rule.drools.DroolsAutoConfiguration.getRuleFiles;
 
 @Component
 public class DroolsTest implements CommandLineRunner {
@@ -19,10 +29,32 @@ public class DroolsTest implements CommandLineRunner {
 
     @Resource
     public KieBase kieBase;
+    @Resource
+    public KieFileSystem kieFileSystem;
+
+    @Resource
+    KieContainer kieContainer;
 
     @Override
     public void run(String... args) throws Exception {
-//        while(true){
+        while(true){
+            // 新增或者更新
+            KnowledgeBuilder kBuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+            for (String filePath : getRuleFiles()) {
+                kBuilder.add(ResourceFactory.newFileResource(filePath), ResourceType.DRL);
+            }
+            if (kBuilder.hasErrors()) {
+                KnowledgeBuilderErrors errors = kBuilder.getErrors();
+                log.error(errors.toString());
+                return;
+            }
+
+            InternalKnowledgeBase knowledgeBase = (InternalKnowledgeBase) kieContainer.getKieBase();
+            knowledgeBase.addPackages(kBuilder.getKnowledgePackages());
+            System.out.println("-----------------------------reload rule -----------------------------");
+
+
+
             KieSession kieSession = kieBase.newKieSession();
 
             System.out.println("-----------------------------start:" +  LocalDateTime.now() + "-----------------------------");
@@ -46,11 +78,12 @@ public class DroolsTest implements CommandLineRunner {
                     LocalDateTime.now().plusDays(95L),LocalDateTime.now(),
                     Project.Color.DEFAULT);
             kieSession.insert(project95);
-            
+
             kieSession.fireAllRules();
             kieSession.dispose();
+
             System.out.println("-----------------------------end:" +  LocalDateTime.now() + "-----------------------------");
-//            Thread.sleep(100000);
-//        }
+            Thread.sleep(10000);
+        }
     }
 }

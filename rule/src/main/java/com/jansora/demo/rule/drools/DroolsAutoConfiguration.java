@@ -34,7 +34,7 @@ import java.nio.file.Paths;
 @Configuration
 public class DroolsAutoConfiguration {
 
-    private static final String RULES_PATH = "rules/";
+    public static final String RULES_PATH = "rules/";
 
     private KieServices getKieServices() {
         return KieServices.Factory.get();
@@ -44,23 +44,23 @@ public class DroolsAutoConfiguration {
     @ConditionalOnMissingBean(KieFileSystem.class)
     public KieFileSystem kieFileSystem() throws IOException {
         KieFileSystem kieFileSystem = getKieServices().newKieFileSystem();
-//        for (String filePath : getRuleFiles()) {
-////            String virvalPath = System.getProperty("java.io.tmpdir") + filePath;
-////            writeBytesToFile(Files.readAllBytes(Paths.get(filePath)), virvalPath);
-//            kieFileSystem.write(ResourceFactory.newFileResource(filePath));
-////            kieFileSystem.write(filePath, Files.readAllBytes(Paths.get(filePath)));
-//        }
-        for (Resource file : getResourcesRuleFiles()) {
-            kieFileSystem.write(ResourceFactory.newClassPathResource(RULES_PATH + file.getFilename(), "UTF-8"));
+        for (String filePath : getRuleFiles()) {
+//            String virvalPath = System.getProperty("java.io.tmpdir") + filePath;
+//            writeBytesToFile(Files.readAllBytes(Paths.get(filePath)), virvalPath);
+            kieFileSystem.write(ResourceFactory.newFileResource(filePath));
+//            kieFileSystem.write(filePath, Files.readAllBytes(Paths.get(filePath)));
         }
+//        for (Resource file : getResourcesRuleFiles()) {
+//            kieFileSystem.write(ResourceFactory.newClassPathResource(RULES_PATH + file.getFilename(), "UTF-8"));
+//        }
         return kieFileSystem;
     }
-    private Resource[] getResourcesRuleFiles() throws IOException {
+    public static Resource[] getResourcesRuleFiles() throws IOException {
         ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
         return resourcePatternResolver.getResources("classpath*:" + RULES_PATH + "**/*.*");
     }
 
-    private String[] getRuleFiles() throws IOException {
+    public static String[] getRuleFiles() throws IOException {
 //        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
 //        return resourcePatternResolver.getResources("classpath*:" + RULES_PATH + "**/*.*");
 

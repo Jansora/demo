@@ -71,7 +71,7 @@ public class DroolsTest implements CommandLineRunner {
                     Project.Color.DEFAULT);
             kieSession.insert(project35);
             DelayProject project65 = new DelayProject( "drools 流程引擎测试 65 day",
-                    LocalDateTime.now().plusDays(65L),LocalDateTime.now(),
+                    LocalDateTime.now().plusDays(65L),LocalDateTime     .now(),
                     Project.Color.DEFAULT);
             kieSession.insert(project65);
             DelayProject project95 = new DelayProject( "drools 流程引擎测试 95 day",

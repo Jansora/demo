@@ -1,0 +1,52 @@
+name: Build and Publish Docker Image
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2  # fetch head and merge-base
+
+
+      - name: Analysis And Extract Commit Message
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B) # 获取最后一次提交的 commit message
+          VERSION=$(echo "${COMMIT_MESSAGE}" | grep -o -E "version@[0-9]+\.[0-9]+\.[0-9]+" | sed 's/version@//')
+          if [[ $(git log -1 --pretty=%B) == *"ci"* ]]; then
+            DO_CI=true
+          else
+            DO_CI=false
+          fi
+          echo "BRANCH_NAME=$(basename ${GITHUB_REF})" >> $GITHUB_ENV  
+          echo "COMMIT_HASH=$(git rev-parse --short=7 HEAD)" >> $GITHUB_ENV
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+          echo "DO_CI=${DO_CI}" >> $GITHUB_ENV
+
+
+      - name: Build Docker image
+        run: |
+          if [ "${DO_CI}" = "true" ]; then
+            docker build --build-arg COMMIT_HASH=${COMMIT_HASH} -t jansora/elasticbook:${COMMIT_HASH} .
+          else
+            echo "skipped."
+          fi
+
+      - name: Push to Aliyun HK Docker Registry
+        run: |
+          if [ "${DO_CI}" = "true" ]; then
+            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hongkong.aliyuncs.com --password-stdin
+            docker tag jansora/elasticbook:${COMMIT_HASH} registry.cn-hongkong.aliyuncs.com/jansora/elasticbook:${COMMIT_HASH}
+            docker tag jansora/elasticbook:${COMMIT_HASH} registry.cn-hongkong.aliyuncs.com/jansora/elasticbook:latest
+            docker push registry.cn-hongkong.aliyuncs.com/jansora/elasticbook:latest
+            docker push registry.cn-hongkong.aliyuncs.com/jansora/elasticbook:${COMMIT_HASH}
+          
+          else
+           echo "skipped."
+          fi

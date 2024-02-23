@@ -16,17 +16,19 @@ public class SalaryContext {
     public static void test(float base) throws Exception {
         ExpressRunner runner = new ExpressRunner(false, false);
 
+        runner.addMacro("税前工资", " salary.base ");
+        runner.addMacro("当前工资", " salary.intermediate ");
         runner.addMacro("试用期", " ( 0.8 ) ");
-        runner.addMacro("公积金", " ( salary.base * 0.12 ) ");
+        runner.addMacro("公积金", " ( 税前工资 * 0.12 ) ");
         runner.addMacro("绩效系数", " ( 0.70 ) ");
-        runner.addMacro("绩效工资", " ( salary.base * ( 1 - 绩效系数) * 0.70 ) ");
+        runner.addMacro("绩效工资", " ( 税前工资 * ( 1 - 绩效系数) * 0.70 ) ");
         runner.addMacro("加班工资", " ( 500 * 3 ) ");
         
         String express = "" +
-                " salary.intermediate = salary.intermediate * 试用期 * 绩效系数;" +
-                " salary.intermediate = salary.intermediate - 公积金;" +
-                " salary.intermediate = salary.intermediate + 绩效工资;" +
-                " salary.intermediate = salary.intermediate + 加班工资;" +
+                " 当前工资 = 当前工资 * 试用期 * 绩效系数;" +
+                " 当前工资 = 当前工资 - 公积金;" +
+                " 当前工资 = 当前工资 + 绩效工资;" +
+                " 当前工资 = 当前工资 + 加班工资;" +
                 " return salary;";
         IExpressContext<String, Object> context = new DefaultContext<String, Object>();
 

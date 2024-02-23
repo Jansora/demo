@@ -3,12 +3,11 @@ import RootLayout from "@jansora/ui/esm/components/enhanced/layout/RootLayout";
 import Header from "@jansora/ui/esm/components/enhanced/layout/header";
 import HeaderLeft from "@/components/header/HeaderLeft";
 import GlobalStoreProvider from "@/lib/store/global";
-import {loadConfig} from "@/lib/config/initConfig";
-import {hash} from "@/lib/util/utils";
-import {CategoryCache} from "@/lib/declares/store";
 
 import PaddedFullPageLayout from "@jansora/ui/esm/components/enhanced/layout/PaddedFullPageLayout";
 import HeaderRight from "@/components/header/HeaderRight";
+import LoadIconFont from "@/components/layout/LoadIconFont";
+import {Toaster} from "sonner";
 
 
 export default function Layout({children}) {
@@ -28,28 +27,19 @@ export default function Layout({children}) {
 
                 </PaddedFullPageLayout>
             </GlobalStoreProvider>
+
+            <Toaster richColors />
+            <LoadIconFont />
         </RootLayout>
     )
 }
 
 const initialData = () => {
 
-    const config = loadConfig();
+    // const config = loadConfig();
 
-    const data: { categories: CategoryCache[]} = {
+    const data= {
 
-        categories: config.categories.map(category => {
-            return {
-                key: hash(category.path),
-                value: category.name,
-                books: category.books.map(book => {
-                    return {
-                        key: hash(book.path),
-                        value: book.name,
-                    }
-                }),
-            }
-        })
     }
 
 

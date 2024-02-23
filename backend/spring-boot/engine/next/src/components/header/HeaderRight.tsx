@@ -17,13 +17,9 @@ const HeaderRight = ({children}: Props) => {
     return (
         <>
             <Link href="/" className="flex items-center">
-
-                <span className="hidden sm:inline-block my-auto select-none ">
-                                 Github
-                                </span>
-                <span className="inline-block sm:hidden  my-auto select-none ">
-
-                 </span>
+                <span className="hidden sm:inline-block my-auto select-none text-muted-foreground text-sm ">
+                                 {/*心之所向，素履以往；生如逆旅，一苇以航*/}
+                </span>
             </Link>
 
         </>

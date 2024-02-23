@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@jansora/bytemd": "0.0.75",
+    "@jansora/monaco": "0.0.75",
     "@jansora/next": "0.0.75",
     "@jansora/ui": "0.0.75",
-    "@jansora/monaco": "0.0.75",
     "@wojtekmaj/react-hooks": "^1.18.0",
     "raw-loader": "^4.0.2",
     "react-pdf": "^7.6.0"
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/node": "20.4.2",
     "@types/react": "18.2.14",
+    "autoprefixer": "^10.4.17",
     "typescript": "5.1.6"
   }
 }

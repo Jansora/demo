@@ -20,7 +20,7 @@ const HeaderLeft = ({children}: Props) => {
 
     const pathname = usePathname();
 
-    console.log("path", pathname)
+    console.log("pathname", pathname, pathname.startsWith("/demo") || pathname === "/demo")
     return (
         <>
             <Link href="/" className="flex items-center">
@@ -28,18 +28,17 @@ const HeaderLeft = ({children}: Props) => {
                 <Waypoints className="mr-2 h-6 w-6 " />
                 {/*<Command className="mr-2 h-8 w-8" />*/}
                 <span className="hidden sm:inline-block my-auto select-none ">
-                                 规则引擎
+                                 公式引擎
                                 </span>
                 <span className="inline-block sm:hidden  my-auto select-none ">
-                                 规则引擎
+                                 公式引擎
                  </span>
             </Link>
 
             <Separator orientation="vertical" className="mx-3 h-5 "/>
 
-            <NavLink href={`/drools`} className={cn("text-sm mr-3")} active={pathname.startsWith("/drools")}  > Drools </NavLink>
+            <NavLink href={`/demo`} className={cn("text-sm mr-3")} active={pathname.startsWith("/demo") || pathname === "/demo"}  > Hr 薪酬计算演示 </NavLink>
 
-            <NavLink href={`/liteflow`} className={cn("text-sm mr-3")} active={pathname.startsWith("/liteflow")} > LiteFlow </NavLink>
 
             <Menubar className="rounded-none border-b border-none lg:px-0">
 

@@ -27,10 +27,19 @@ public class ContextMessagePutTest {
 
 
     public static void test() throws Exception {
-        ExpressRunner runner = new ExpressRunner();
+        ExpressRunner runner = new ExpressRunner(false, true);
         OperatorBase op = new OperatorContextPut("contextPut");
         runner.addFunction("contextPut", op);
-        String express = "contextPut('success', 'false'); contextPut('error', '错误信息'); contextPut('warning', '提醒信息')";
+        String express = "function add(int a, int b){\n" +
+                "    return a + b;\n" +
+                "};\n" +
+                "\n" +
+                "function sub(int a, int b){\n" +
+                "    return a - b;\n" +
+                "};\n" +
+                "\n" +
+                "a = 10;\n" +
+                "return add(a, 4) + sub(a, 9);";
 
 
         IExpressContext<String, Object> context = new DefaultContext<String, Object>();

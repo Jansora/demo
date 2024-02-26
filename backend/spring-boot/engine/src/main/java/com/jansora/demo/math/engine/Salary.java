@@ -21,18 +21,23 @@ public class Salary {
     float base;
 
     /**
-     * 中间态的工资
+     * 当前段的工资
      */
-    float intermediate;
+    float stackSalary;
+
+    /**
+     * 当前工资(中间态的工资)
+     */
+    float currentSalary;
 
     /**
      * 最终工资, 只有在最终确认的时候才会有值
      */
-    float finalSalary = 0;
+    float finalSalary;
 
     public Salary(float base) {
         this.base = base;
-        this.intermediate = base;
+        this.currentSalary = base;
     }
 
 
@@ -40,10 +45,7 @@ public class Salary {
      * 输出最终金额
      */
     public float finalSalary() {
-        if (finalSalary != 0) {
-            this.finalSalary = intermediate;
-            return finalSalary;
-        }
-        throw new RuntimeException("最终工资不能为负数");
+        this.finalSalary = currentSalary;
+        return finalSalary;
     }
 }

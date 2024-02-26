@@ -8,6 +8,8 @@ import {
     AdminSubLayoutContent
 } from "@jansora/ui/esm/components/enhanced/layout/AdminSubLayout";
 import {SidebarNav} from "@jansora/ui/esm/components/enhanced/layout/SidebarNav";
+import PageLayout from "@jansora/ui/esm/components/enhanced/layout/PageLayout";
+import PaddedPageLayout from "@jansora/ui/esm/components/enhanced/layout/PaddedPageLayout";
 
 
 const sidebarNavItems = [
@@ -27,16 +29,10 @@ export default function Layout({children}) {
     const dark = GetDarkMode();
     // const books = initBooks(config.categories[0])
     return (
-        <>
-            <AdminSubLayout description="规则热加载和实例化运行" title="Drools 后台管理" className="sm:w-full m-0 ">
+        <PageLayout>
 
-                <AdminSubLayoutAside>
-                    <SidebarNav items={sidebarNavItems} />
-                </AdminSubLayoutAside>
-                <AdminSubLayoutContent >
                     {children}
-                </AdminSubLayoutContent>
-            </AdminSubLayout>
-        </>
+
+        </PageLayout>
     )
 }

@@ -8,7 +8,12 @@ import {useDebounceFn} from "ahooks";
 import {HoverCard, HoverCardContent, HoverCardTrigger,} from "@jansora/ui/esm/components/ui/hover-card";
 import {Button} from "@jansora/ui/esm/components/ui/button";
 import {Card, CardContent, CardFooter, CardHeader, CardTitle,} from "@jansora/ui/esm/components/ui/card"
-
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@jansora/ui/esm/components/ui/accordion"
 
 import {
     Form,
@@ -31,19 +36,21 @@ import {useForm} from "react-hook-form";
 import {fetchClient} from "@/lib/fetch/client/fetch-client";
 const meta = {
     variables: {
-        '税前工资': ' 3000 ',
+        '税前工资': ' 3000.23 ',
         '工作日加班天数': ' 5.3 ',
         '周末加班天数': ' 2.5 ',
         '节假日加班天数': ' 2 ',
         '绩效': ' 1.0 ',
+        '试用期系数': ' 0.8  ',
+        '绩效系数': ' 0.30  ',
         '缺勤天数': ' 1.5 ',
         '销售金额': ' 1000000 ',
         '通报处罚': ' 500 ',
+
     },
     functions: {
-        '试用期系数': ' ( 0.8 ) ',
-        '绩效系数': ' ( 0.30 ) ',
-        '五险一金计算': ' ( 3000 ) ',
+        '销售提成': '5000',
+        '五险一金计算': ' 3000 ',
         '个税计算': ' 2300 ',
     },
     formulas: {
@@ -54,7 +61,7 @@ const meta = {
             '非绩效工资': ' 基础工资模块 * ( 1 - 绩效系数) * 绩效系数  ',
             '基础绩效工资': '基础工资模块 * 绩效系数 * 绩效 ',
             '全勤工资': ' 300 ',
-            '销售提成工资': ' 基础工资模块 * 销售提成系数 '
+            '销售提成工资': ' 销售提成 '
         },
         '公共模块': {
             '五险一金扣款': ' ( 五险一金计算) ',
@@ -159,7 +166,44 @@ export default function Page() {
                         />
                     }
                 </div>
-                <div className="w-2/3 ml-5">
+                <div className="w-2/3 ">
+                    <Accordion type="multiple" className="w-full px-5">
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger className="hover:no-underline">高频功能点</AccordionTrigger>
+                            <AccordionContent>
+                                <div>
+                                    {
+                                        Object.keys(metadata.functions).map((key, index) => {
+                                            return (
+                                                <HoverCard key={index}>
+                                                    <HoverCardTrigger asChild>
+                                                        <Button size="sm" variant="default" className="mr-3">{key}</Button>
+                                                    </HoverCardTrigger>
+                                                    <HoverCardContent className="w-80">
+                                                        <div className="flex justify-between space-x-4">
+                                                            <div className="space-y-1">
+                                                                <h4 className="text-sm font-semibold">计算公式</h4>
+                                                                <p className="text-sm text-green-500">
+                                                                    {metadata.functions[key]}
+                                                                </p>
+                                                                <div className="flex items-center pt-2">
+                                                        <span className="text-xs text-muted-foreground">
+                                                          计算公式明细
+                                                        </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </HoverCardContent>
+                                                </HoverCard>
+                                            )
+                                        })
+                                    }
+
+                                </div>
+
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
                     <Tabs defaultValue="calculate" className="w-full">
                         <TabsList className="grid w-full grid-cols-2">
                             <TabsTrigger value="template">计算模板</TabsTrigger>
@@ -168,36 +212,6 @@ export default function Page() {
                         <TabsContent value="template" className="pt-8">
                     <div>
                         <small className="text-sm font-medium leading-none mb-5 block">高频功能点</small>
-
-                        <div>
-                            {
-                                Object.keys(metadata.functions).map((key, index) => {
-                                    return (
-                                    <HoverCard key={index}>
-                                        <HoverCardTrigger asChild>
-                                            <Button size="sm" variant="default" className="mr-3">{key}</Button>
-                                        </HoverCardTrigger>
-                                        <HoverCardContent className="w-80">
-                                            <div className="flex justify-between space-x-4">
-                                                <div className="space-y-1">
-                                                    <h4 className="text-sm font-semibold">计算公式</h4>
-                                                    <p className="text-sm text-green-500">
-                                                        {metadata.functions[key]}
-                                                    </p>
-                                                    <div className="flex items-center pt-2">
-                                                        <span className="text-xs text-muted-foreground">
-                                                          计算公式明细
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </HoverCardContent>
-                                    </HoverCard>
-                                    )
-                                })
-                            }
-
-                        </div>
 
                         <small className="text-sm font-medium leading-none mb-5 block mt-5">工资计算块 </small>
                         <div className="flex flex-wrap ">

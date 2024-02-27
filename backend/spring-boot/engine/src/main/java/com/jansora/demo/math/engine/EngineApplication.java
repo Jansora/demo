@@ -9,7 +9,7 @@ public class EngineApplication {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(EngineApplication.class, args);
 
-		SalaryController.test(10000);
+
 	}
 
 }

@@ -8,6 +8,7 @@ import PaddedFullPageLayout from "@jansora/ui/esm/components/enhanced/layout/Pad
 import HeaderRight from "@/components/header/HeaderRight";
 import LoadIconFont from "@/components/layout/LoadIconFont";
 import {Toaster} from "sonner";
+import PageLayout from "@jansora/ui/esm/components/enhanced/layout/PageLayout";
 
 
 export default function Layout({children}) {
@@ -23,7 +24,11 @@ export default function Layout({children}) {
             />
                 <PaddedFullPageLayout>
 
-                    {children}
+                    <PageLayout>
+
+                        {children}
+
+                    </PageLayout>
 
                 </PaddedFullPageLayout>
             </GlobalStoreProvider>

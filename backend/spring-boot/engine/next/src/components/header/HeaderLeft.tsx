@@ -37,7 +37,7 @@ const HeaderLeft = ({children}: Props) => {
 
             <Separator orientation="vertical" className="mx-3 h-5 "/>
 
-            <NavLink href={`/demo`} className={cn("text-sm mr-3")} active={pathname.startsWith("/demo") || pathname === "/demo"}  > Hr 薪酬计算演示 </NavLink>
+            <NavLink href={`/`} className={cn("text-sm mr-3")} active={pathname.startsWith("/") || pathname === "/"}  > Hr 薪酬计算演示 </NavLink>
 
 
             <Menubar className="rounded-none border-b border-none lg:px-0">

@@ -130,7 +130,7 @@ export async function fetchClient(url: string, options?: any, setLoading?:any, f
     try {
         // 发送请求
 
-        response = await fetch("/nextjs" + url, !formBody ? {
+        response = await fetch("/api" + url, !formBody ? {
             headers: clientHeader(),
             ...options ,
         }: { ...(options || {})});

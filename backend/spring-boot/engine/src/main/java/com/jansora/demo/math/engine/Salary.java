@@ -35,6 +35,23 @@ public class Salary {
      */
     float finalSalary;
 
+
+    /**
+     * 工作日加班天数
+     */
+    float weekday;
+
+    /**
+     * 周末加班天数
+     */
+    float weekend;
+
+    /**
+     * 节假日加班天数
+     */
+    float holiday;
+
+
     public Salary(float base) {
         this.base = base;
         this.currentSalary = base;

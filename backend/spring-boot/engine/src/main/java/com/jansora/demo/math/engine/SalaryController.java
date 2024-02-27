@@ -1,13 +1,11 @@
 package com.jansora.demo.math.engine;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.ql.util.express.DefaultContext;
 import com.ql.util.express.ExpressRunner;
 import com.ql.util.express.IExpressContext;
 import com.ql.util.express.instruction.op.OperatorBase;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @description:
@@ -18,18 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/salary")
 public class SalaryController {
 
-    @PostMapping("/calculate")
-    public void calculate(@RequestBody SalaryRequest request) throws Exception {
-        test(10000);
+    @PutMapping("/calculate")
+    public void calculate(@RequestBody JsonNode request) throws Exception {
+        test(request);
     }
 
 
 
-    public static void test(float base) throws Exception {
+    public static void test(JsonNode request) throws Exception {
         ExpressRunner runner = new ExpressRunner(false, false);
 
         runner.addMacro("税前工资", " salary.base ");
-        runner.addMacro("当前工资", " salary.currentSalary ");
         runner.addMacro("试用期系数", " ( 0.8 ) ");
         runner.addMacro("公积金", " ( 税前工资 * 0.12 ) ");
         runner.addMacro("绩效系数", " ( 0.70 ) ");
@@ -38,7 +35,7 @@ public class SalaryController {
         
         String express = "" +
                 "stack = new HashMap();" +
-                " 当前工资 = 当前工资 * 试用期系数 * 绩效系数;" +
+                " 当前工资 = 税前工资 * 试用期系数 * 绩效系数;" +
                 " 当前工资 = 当前工资 - 公积金;" +
                 " 当前工资 = 当前工资 + 绩效工资;" +
                 " 当前工资 = 当前工资 + 加班工资;" +

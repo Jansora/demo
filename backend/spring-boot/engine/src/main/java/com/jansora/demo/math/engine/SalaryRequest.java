@@ -1,9 +1,12 @@
 package com.jansora.demo.math.engine;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description:
@@ -11,34 +14,28 @@ import java.util.List;
  * @date: 2024-02-26 10:59:26
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class SalaryRequest implements Serializable  {
 
+    /**
+     * 变量
+     */
+    Map<String, String> variables;
 
     /**
      * 方法
      */
-    List<List<String>> functions;
+    Map<String, String> functions;
 
     /**
      * 基础工资 (税前)
      */
-    float base;
+    String finalFormula;
 
     /**
      * 公式
      */
-    List<FormulaStack> formula;
+    Map<String, String> formulas;
 
-    @Data
-    public static class FormulaStack implements Serializable {
-        /**
-         * 块名称
-         */
-        String name;
-
-        /**
-         * 工时
-         */
-        String formula;
-    }
 }

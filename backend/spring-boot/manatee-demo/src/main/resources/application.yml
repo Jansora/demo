@@ -1,0 +1,9 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: xxxx
+    password: xxxx
+    url: jdbc:mysql://xx.xx.xx.xx:3306/xxx?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
